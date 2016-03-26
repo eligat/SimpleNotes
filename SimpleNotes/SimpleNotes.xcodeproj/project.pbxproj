@@ -21,6 +21,10 @@
 		60887BFB1CA6C67F000A09F8 /* SingleNoteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60887BFA1CA6C67F000A09F8 /* SingleNoteVC.xib */; };
 		60887BFF1CA6C80D000A09F8 /* EditNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887BFD1CA6C80D000A09F8 /* EditNoteVC.m */; };
 		60887C001CA6C80D000A09F8 /* EditNoteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60887BFE1CA6C80D000A09F8 /* EditNoteVC.xib */; };
+		60887C091CA6CF39000A09F8 /* Note+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887C021CA6CF39000A09F8 /* Note+CoreDataProperties.m */; };
+		60887C0A1CA6CF39000A09F8 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887C041CA6CF39000A09F8 /* Note.m */; };
+		60887C0B1CA6CF39000A09F8 /* Image+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887C061CA6CF39000A09F8 /* Image+CoreDataProperties.m */; };
+		60887C0C1CA6CF39000A09F8 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887C081CA6CF39000A09F8 /* Image.m */; };
 		84D7D5FC7DECB6FAD9FF9869 /* libPods-SimpleNotes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D47DF9436984FEA67BA1B9 /* libPods-SimpleNotes.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +51,14 @@
 		60887BFC1CA6C80D000A09F8 /* EditNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditNoteVC.h; path = Controllers/EditNoteVC.h; sourceTree = "<group>"; };
 		60887BFD1CA6C80D000A09F8 /* EditNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditNoteVC.m; path = Controllers/EditNoteVC.m; sourceTree = "<group>"; };
 		60887BFE1CA6C80D000A09F8 /* EditNoteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditNoteVC.xib; path = Controllers/EditNoteVC.xib; sourceTree = "<group>"; };
+		60887C011CA6CF39000A09F8 /* Note+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Note+CoreDataProperties.h"; path = "Model/Note+CoreDataProperties.h"; sourceTree = "<group>"; };
+		60887C021CA6CF39000A09F8 /* Note+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Note+CoreDataProperties.m"; path = "Model/Note+CoreDataProperties.m"; sourceTree = "<group>"; };
+		60887C031CA6CF39000A09F8 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Model/Note.h; sourceTree = "<group>"; };
+		60887C041CA6CF39000A09F8 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Model/Note.m; sourceTree = "<group>"; };
+		60887C051CA6CF39000A09F8 /* Image+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Image+CoreDataProperties.h"; path = "Model/Image+CoreDataProperties.h"; sourceTree = "<group>"; };
+		60887C061CA6CF39000A09F8 /* Image+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Image+CoreDataProperties.m"; path = "Model/Image+CoreDataProperties.m"; sourceTree = "<group>"; };
+		60887C071CA6CF39000A09F8 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = Model/Image.h; sourceTree = "<group>"; };
+		60887C081CA6CF39000A09F8 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = Model/Image.m; sourceTree = "<group>"; };
 		66D47DF9436984FEA67BA1B9 /* libPods-SimpleNotes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleNotes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9499C00A46D8EF02D5225AF /* Pods-SimpleNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleNotes/Pods-SimpleNotes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +119,8 @@
 		60887BE61CA687C3000A09F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				60887C0E1CA6CF4E000A09F8 /* Image */,
+				60887C0D1CA6CF45000A09F8 /* Note */,
 				60887BEA1CA68B28000A09F8 /* SimpleNotes.xcdatamodeld */,
 			);
 			name = Model;
@@ -146,6 +160,28 @@
 				60887BDB1CA67FEE000A09F8 /* Assets.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		60887C0D1CA6CF45000A09F8 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				60887C011CA6CF39000A09F8 /* Note+CoreDataProperties.h */,
+				60887C021CA6CF39000A09F8 /* Note+CoreDataProperties.m */,
+				60887C031CA6CF39000A09F8 /* Note.h */,
+				60887C041CA6CF39000A09F8 /* Note.m */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
+		60887C0E1CA6CF4E000A09F8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				60887C051CA6CF39000A09F8 /* Image+CoreDataProperties.h */,
+				60887C061CA6CF39000A09F8 /* Image+CoreDataProperties.m */,
+				60887C071CA6CF39000A09F8 /* Image.h */,
+				60887C081CA6CF39000A09F8 /* Image.m */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 		B5E54CB192FA179F717488B1 /* Frameworks */ = {
@@ -290,11 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60887C0C1CA6CF39000A09F8 /* Image.m in Sources */,
+				60887C0A1CA6CF39000A09F8 /* Note.m in Sources */,
 				60887BD41CA67FEE000A09F8 /* SingleNoteVC.m in Sources */,
 				60887BF81CA6C1B9000A09F8 /* NoteTVC.m in Sources */,
 				60887BFF1CA6C80D000A09F8 /* EditNoteVC.m in Sources */,
 				60887BD11CA67FEE000A09F8 /* AppDelegate.m in Sources */,
+				60887C0B1CA6CF39000A09F8 /* Image+CoreDataProperties.m in Sources */,
 				60887BCE1CA67FEE000A09F8 /* main.m in Sources */,
+				60887C091CA6CF39000A09F8 /* Note+CoreDataProperties.m in Sources */,
 				60887BEC1CA68B28000A09F8 /* SimpleNotes.xcdatamodeld in Sources */,
 				60887BF31CA6C0D0000A09F8 /* NotesListVC.m in Sources */,
 			);
