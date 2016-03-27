@@ -26,7 +26,7 @@
                     <navigationItem key="navigationItem" id="007-Vu-bVn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="ZqN-Av-dOn" kind="show" id="NrN-T3-7Yd"/>
+                        <segue destination="ZqN-Av-dOn" kind="show" identifier="New" id="NrN-T3-7Yd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knr-vC-OUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,6 +94,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3Bn-HJ-j5Y"/>
+        <segue reference="NrN-T3-7Yd"/>
     </inferredMetricsTieBreakers>
 </document>
