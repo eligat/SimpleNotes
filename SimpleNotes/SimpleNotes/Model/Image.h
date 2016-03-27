@@ -1,10 +1,3 @@
-//
-//  Image.h
-//  SimpleNotes
-//
-//  Created by eligat on 3/26/16.
-//  Copyright © 2016 Oleg Sannikov. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
