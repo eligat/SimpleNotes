@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15C50" minimumToolsVersion="Automatic">
     <entity name="Image" representedClassName="Image" syncable="YES">
-        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileRef" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="images" inverseEntity="Note" syncable="YES"/>
     </entity>
@@ -13,7 +13,7 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Image" inverseName="note" inverseEntity="Image" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Image" positionX="-36" positionY="6" width="128" height="88"/>
+        <element name="Image" positionX="-36" positionY="6" width="128" height="90"/>
         <element name="Note" positionX="-252" positionY="-39" width="128" height="120"/>
     </elements>
 </model>
