@@ -10,6 +10,9 @@
 		607C4C611CA7ACE00036BC82 /* NoteTVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C4C601CA7ACE00036BC82 /* NoteTVCModel.m */; };
 		607C4C661CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C4C651CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m */; };
 		60837E391CA95B4800DC6A94 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60837E381CA95B4800DC6A94 /* DataManager.m */; };
+		60837E3C1CA96C6D00DC6A94 /* ImageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60837E3B1CA96C6D00DC6A94 /* ImageListView.m */; };
+		60837E411CA970D200DC6A94 /* ImageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60837E401CA970D200DC6A94 /* ImageListCell.m */; };
+		60837E431CA970E300DC6A94 /* ImageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60837E421CA970E300DC6A94 /* ImageListCell.xib */; };
 		60887BCE1CA67FEE000A09F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887BCD1CA67FEE000A09F8 /* main.m */; };
 		60887BD11CA67FEE000A09F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887BD01CA67FEE000A09F8 /* AppDelegate.m */; };
 		60887BD41CA67FEE000A09F8 /* SingleNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60887BD31CA67FEE000A09F8 /* SingleNoteVC.m */; };
@@ -39,6 +42,11 @@
 		607C4C651CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISplitViewController+ChildrenAccess.m"; path = "Categories/UISplitViewController+ChildrenAccess.m"; sourceTree = "<group>"; };
 		60837E371CA95B4800DC6A94 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Controllers/DataManager.h; sourceTree = "<group>"; };
 		60837E381CA95B4800DC6A94 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Controllers/DataManager.m; sourceTree = "<group>"; };
+		60837E3A1CA96C6D00DC6A94 /* ImageListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageListView.h; path = Views/ImageListView.h; sourceTree = "<group>"; };
+		60837E3B1CA96C6D00DC6A94 /* ImageListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageListView.m; path = Views/ImageListView.m; sourceTree = "<group>"; };
+		60837E3F1CA970D200DC6A94 /* ImageListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageListCell.h; path = Views/ImageListCell.h; sourceTree = "<group>"; };
+		60837E401CA970D200DC6A94 /* ImageListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageListCell.m; path = Views/ImageListCell.m; sourceTree = "<group>"; };
+		60837E421CA970E300DC6A94 /* ImageListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageListCell.xib; path = Views/ImageListCell.xib; sourceTree = "<group>"; };
 		60887BC91CA67FEE000A09F8 /* SimpleNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60887BCD1CA67FEE000A09F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		60887BCF1CA67FEE000A09F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,6 +133,28 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		60837E3D1CA96C7300DC6A94 /* ImageListView */ = {
+			isa = PBXGroup;
+			children = (
+				60837E3A1CA96C6D00DC6A94 /* ImageListView.h */,
+				60837E3B1CA96C6D00DC6A94 /* ImageListView.m */,
+				60837E3F1CA970D200DC6A94 /* ImageListCell.h */,
+				60837E401CA970D200DC6A94 /* ImageListCell.m */,
+				60837E421CA970E300DC6A94 /* ImageListCell.xib */,
+			);
+			name = ImageListView;
+			sourceTree = "<group>";
+		};
+		60837E441CA980FF00DC6A94 /* NoteTVC */ = {
+			isa = PBXGroup;
+			children = (
+				60887BF51CA6C1B9000A09F8 /* NoteTVC.h */,
+				60887BF61CA6C1B9000A09F8 /* NoteTVC.m */,
+				60887BF71CA6C1B9000A09F8 /* NoteTVC.xib */,
+			);
+			name = NoteTVC;
+			sourceTree = "<group>";
+		};
 		60887BC01CA67FEE000A09F8 = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +210,8 @@
 		60887BE71CA687CA000A09F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				60887BF51CA6C1B9000A09F8 /* NoteTVC.h */,
-				60887BF61CA6C1B9000A09F8 /* NoteTVC.m */,
-				60887BF71CA6C1B9000A09F8 /* NoteTVC.xib */,
+				60837E441CA980FF00DC6A94 /* NoteTVC */,
+				60837E3D1CA96C7300DC6A94 /* ImageListView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -309,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60887BF91CA6C1B9000A09F8 /* NoteTVC.xib in Resources */,
+				60837E431CA970E300DC6A94 /* ImageListCell.xib in Resources */,
 				60887C001CA6C80D000A09F8 /* EditNoteVC.xib in Resources */,
 				60887BDF1CA67FEE000A09F8 /* LaunchScreen.storyboard in Resources */,
 				60887BFB1CA6C67F000A09F8 /* SingleNoteVC.xib in Resources */,
@@ -379,8 +409,10 @@
 				60887BD41CA67FEE000A09F8 /* SingleNoteVC.m in Sources */,
 				60887BF81CA6C1B9000A09F8 /* NoteTVC.m in Sources */,
 				60887BFF1CA6C80D000A09F8 /* EditNoteVC.m in Sources */,
+				60837E3C1CA96C6D00DC6A94 /* ImageListView.m in Sources */,
 				60887BD11CA67FEE000A09F8 /* AppDelegate.m in Sources */,
 				607C4C661CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m in Sources */,
+				60837E411CA970D200DC6A94 /* ImageListCell.m in Sources */,
 				60887C0B1CA6CF39000A09F8 /* Image+CoreDataProperties.m in Sources */,
 				60837E391CA95B4800DC6A94 /* DataManager.m in Sources */,
 				60887BCE1CA67FEE000A09F8 /* main.m in Sources */,
