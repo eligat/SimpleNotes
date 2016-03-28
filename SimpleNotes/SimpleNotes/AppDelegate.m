@@ -1,12 +1,19 @@
 
 
 #import "AppDelegate.h"
+#import "UISplitViewController+ChildrenAccess.h"
+
 #import <MagicalRecord/MagicalRecord.h>
+#import "DataManager.h"
+
+#import "Note.h"
+#import "NotesListVC.h"
+
 
 static NSString * const CoreDataStoreName = @"NotesData";
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
-
+@property (nonatomic) DataManager *dataManager;
 @end
 
 @implementation AppDelegate
@@ -17,13 +24,33 @@ static NSString * const CoreDataStoreName = @"NotesData";
     self = [super init];
     if (self) {
         [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:CoreDataStoreName];
+        _dataManager = [DataManager sharedManager];
     }
+    
     return self;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UISplitViewController *splitVC = (UISplitViewController *)self.window.rootViewController;
     splitVC.delegate = self;
+    
+    NotesListVC *notesListVC = [(UINavigationController *)splitVC.masterVC viewControllers].firstObject;
+    
+    //======TEST======//
+    NSArray *notes = [self.dataManager allNotes];
+    if (!notes.count) {
+        for (int i = 0; i < 5; ++i) {
+            Note *note = [Note MR_createEntity];
+            note.name = [NSString stringWithFormat:@"NOTE NAME %d", i];
+            note.text = [NSString stringWithFormat:@"Note text %d", i];
+        }
+        
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    }
+    //======TEST======//
+    
+    notesListVC.notes = [self.dataManager allNotes];
+    
     
     return YES;
 }
