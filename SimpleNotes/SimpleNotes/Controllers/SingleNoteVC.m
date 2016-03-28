@@ -1,6 +1,7 @@
 
 #import "SingleNoteVC.h"
 #import "Note.h"
+#import "ImageListView.h"
 
 static NSString * const EditNoteSegueID = @"EditNoteSegue";
 
@@ -8,7 +9,6 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
 @interface SingleNoteVC ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *addImageButton;
 @property (weak, nonatomic) IBOutlet UIView *imagesView;
 
 @end
