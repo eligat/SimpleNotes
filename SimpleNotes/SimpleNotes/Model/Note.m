@@ -3,6 +3,9 @@
 
 @implementation Note
 
-// Insert code here to add functionality to your managed object subclass
+- (void)awakeFromInsert{
+    self.created = [NSDate date];
+    self.updated = self.created;
+}
 
 @end
