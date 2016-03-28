@@ -7,6 +7,7 @@
 #import "UISplitViewController+ChildrenAccess.h"
 
 static NSString * const NoteCellID = @"NoteTVC";
+static NSString * const ShowDetailVCSegueID = @"ShowDetailSegue";
 
 
 @interface NotesListVC () <UITableViewDelegate, UITableViewDataSource>
@@ -51,9 +52,11 @@ static NSString * const NoteCellID = @"NoteTVC";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[NoteTVC class] forCellReuseIdentifier:NoteCellID];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([NoteTVC class]) bundle:nil] forCellReuseIdentifier:NoteCellID];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    [self reload];
 }
 
 
@@ -79,7 +82,7 @@ static NSString * const NoteCellID = @"NoteTVC";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NoteCellID forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NoteCellID];
     
     return cell;
 }
@@ -94,8 +97,15 @@ static NSString * const NoteCellID = @"NoteTVC";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    SingleNoteVC *detailVC = (SingleNoteVC *)self.splitViewController.detailVC;
-    [self.splitViewController showDetailViewController:detailVC sender:self];
+    [self performSegueWithIdentifier:ShowDetailVCSegueID sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:ShowDetailVCSegueID]) {
+        SingleNoteVC *noteVC = (SingleNoteVC *)[(UINavigationController *)segue.destinationViewController viewControllers].firstObject;
+        Note *selectedNote = self.notes[[self.tableView indexPathForSelectedRow].row];
+        noteVC.note = selectedNote;
+    }
 }
 
 @end

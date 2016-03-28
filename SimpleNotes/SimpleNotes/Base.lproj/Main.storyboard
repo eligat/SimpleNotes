@@ -5,33 +5,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Single NoteVC-->
+        <!--Note-->
         <scene sceneID="fLY-Y8-eLw">
             <objects>
                 <viewController id="Zir-LD-7wf" customClass="SingleNoteVC" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="5Hp-Nr-KMZ"/>
+                    <navigationItem key="navigationItem" title="Note" id="5Hp-Nr-KMZ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="ZqN-Av-dOn" kind="show" id="3Bn-HJ-j5Y"/>
+                        <segue destination="ZqN-Av-dOn" kind="show" identifier="EditNoteSegue" id="3Bn-HJ-j5Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3j-Q0-Qpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-29" y="723"/>
+            <point key="canvasLocation" x="-29" y="755"/>
         </scene>
-        <!--Notes ListVC-->
+        <!--Notes List-->
         <scene sceneID="Aqu-WB-1CT">
             <objects>
                 <viewController id="zhB-Jt-Ckt" customClass="NotesListVC" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="007-Vu-bVn"/>
+                    <navigationItem key="navigationItem" title="Notes List" id="007-Vu-bVn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="ZqN-Av-dOn" kind="show" identifier="New" id="NrN-T3-7Yd"/>
+                        <segue destination="ZqN-Av-dOn" kind="show" identifier="NewNoteSegue" id="NrN-T3-7Yd"/>
+                        <segue destination="FL2-a8-N3e" kind="showDetail" identifier="ShowDetailSegue" id="xDe-fw-duT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knr-vC-OUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-29" y="128"/>
+            <point key="canvasLocation" x="-29" y="92"/>
         </scene>
         <!--Edit NoteVC-->
         <scene sceneID="ep7-ny-soc">
@@ -58,7 +59,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3B-Re-Gre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-464" y="128"/>
+            <point key="canvasLocation" x="-464" y="92"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="sKj-lR-5IF">
@@ -67,7 +68,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="xIh-AF-VJW" kind="relationship" relationship="masterViewController" id="QiB-po-cTv"/>
-                        <segue destination="FL2-a8-N3e" kind="relationship" relationship="detailViewController" id="hIr-Nm-1lA"/>
+                        <segue destination="FL2-a8-N3e" kind="relationship" relationship="detailViewController" id="MH6-cU-cCa"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVE-sz-Ydy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,10 +91,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGS-Ti-c5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-464" y="723"/>
+            <point key="canvasLocation" x="-464" y="755"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NrN-T3-7Yd"/>
+        <segue reference="xDe-fw-duT"/>
+        <segue reference="3Bn-HJ-j5Y"/>
     </inferredMetricsTieBreakers>
 </document>

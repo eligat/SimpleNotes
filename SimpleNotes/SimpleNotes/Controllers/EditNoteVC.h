@@ -1,6 +1,7 @@
 
 #import <UIKit/UIKit.h>
+#import "SingleNoteVC.h"
 
-@interface EditNoteVC : UIViewController
+@interface EditNoteVC : SingleNoteVC
 
 @end

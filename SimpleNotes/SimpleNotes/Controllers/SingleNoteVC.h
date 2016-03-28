@@ -1,8 +1,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SingleNoteVC : UIViewController
+@class Note;
 
+@interface SingleNoteVC : UIViewController
+@property (nonatomic) Note *note;
 
 @end
 
