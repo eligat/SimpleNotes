@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditNoteVC">
             <connections>
+                <outlet property="addImageButton" destination="G7B-Ij-L8B" id="o3v-6R-iiw"/>
+                <outlet property="imagesView" destination="dAL-bF-Wte" id="HZ2-7k-2XL"/>
                 <outlet property="textField" destination="k0z-iE-Ylg" id="Diz-xk-uKf"/>
                 <outlet property="view" destination="FgR-Rw-d1d" id="ST0-DZ-dJX"/>
             </connections>
