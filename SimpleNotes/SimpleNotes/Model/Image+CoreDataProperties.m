@@ -3,7 +3,7 @@
 
 @implementation Image (CoreDataProperties)
 
-@dynamic fileName;
+@dynamic fileRef;
 @dynamic name;
 @dynamic note;
 
