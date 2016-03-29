@@ -89,7 +89,7 @@ static NSString * const AddNewNoteSegueID = @"AddNewNoteSegue";
 }
 
 - (void)reloadData {
-    self.notes = [[DataManager sharedManager] allNotes];
+    self.notes = [DataManager allNotes];
     [self reload];
 }
 

@@ -82,7 +82,7 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
     [super setNote:note];
     
     _originalNote = note;
-    _tmpNote = [[DataManager sharedManager] newTemporaryNoteWithNote:note];
+    _tmpNote = [DataManager newTemporaryNoteWithNote:note];
     [_tmpImages removeAllObjects];
     _noteIsNew = !note;
     _saved = NO;
@@ -139,7 +139,7 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
 
 - (void)save:(UIBarButtonItem *)sender {
     if (self.noteIsNew) {
-        self.originalNote = [[DataManager sharedManager] newTemporaryNoteWithNote:_tmpNote];
+        self.originalNote = [DataManager newTemporaryNoteWithNote:_tmpNote];
         
     } else {
         self.originalNote.name = _tmpNote.name;
@@ -215,7 +215,7 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
 
 - (void)assetsPickerController:(GMImagePickerController *)picker didFinishPickingAssets:(NSArray *)assets {
     for (PHAsset *asset in assets) {
-        Image *img = [[DataManager sharedManager] newImageWithAsset:asset];
+        Image *img = [DataManager newImageWithAsset:asset];
         [self.tmpImages addObject:img];
         [self.tmpNote addImagesObject:img];
     }
