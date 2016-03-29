@@ -27,7 +27,7 @@
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Note text" translatesAutoresizingMaskIntoConstraints="NO" id="X33-bE-yaf">
                                     <rect key="frame" x="20" y="49" width="280" height="128"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.95142780172413788" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="CuF-pI-RWq"/>
                                     </constraints>

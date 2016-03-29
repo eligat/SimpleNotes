@@ -9,9 +9,8 @@
 static NSString * const EditNoteSegueID = @"EditNoteSegue";
 
 
-@interface SingleNoteVC () <ImageListViewDelegate>
+@interface SingleNoteVC ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet ImageListView *imagesView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagesViewHeight;
 
 @end
@@ -23,8 +22,6 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.imagesView.delegate = self;
     
     [self setupNavigationBar];
 }
@@ -60,14 +57,14 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
     
     
     CGSize thumbnailImageSize = CGSizeMake(self.imagesView.bounds.size.width, self.imagesView.imageHeight);
-    [[DataManager sharedManager] fetchThumbnailImagesForNote:self.note
-                                                ofTargerSize:thumbnailImageSize
-                                                  completion:^(NSArray<UIImage *> *images) {
-                                                      
-                                                      self.imagesView.images = images;
-                                                      self.imagesViewHeight.constant = self.imagesView.contentSize.height;
-                                                      
-                                                  }];
+    [DataManager fetchThumbnailImagesForNote:self.note
+                                 ofTargerSize:thumbnailImageSize
+                                   completion:^(NSArray<UIImage *> *images) {
+                                       
+                                       self.imagesView.images = images;
+                                       self.imagesViewHeight.constant = self.imagesView.contentSize.height;
+                                       
+                                   }];
 }
 
 - (void)setupNavigationBar {
@@ -81,17 +78,6 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
                                                             target:self
                                                             action:@selector(editButtonPressed:)];
     self.navigationItem.rightBarButtonItem = edit;
-}
-
-
-#pragma mark - ImageListViewDelegate
-
-- (void)imageList:(ImageListView *)imageList imageCellTapped:(ImageListCell *)imageCell {
-    NSLog(@"%s", __func__);
-}
-
-- (void)imageList:(ImageListView *)imageList imageCellLongPressed:(ImageListCell *)imageCell {
-    NSLog(@"%s", __func__);
 }
 
 

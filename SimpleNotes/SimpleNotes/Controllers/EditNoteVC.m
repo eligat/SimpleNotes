@@ -4,13 +4,14 @@
 #import "Note+CoreDataProperties.h"
 #import "Image+CoreDataProperties.h"
 
+#import "ImageListView.h"
 #import "GMImagePickerController.h"
 
 
 static const CGFloat DefaultDeleteButtonHeight = 30;
 
 
-@interface EditNoteVC () <GMImagePickerControllerDelegate, UITextViewDelegate>
+@interface EditNoteVC () <GMImagePickerControllerDelegate, UITextViewDelegate, ImageListViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *addImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
@@ -41,6 +42,7 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.imagesView.delegate = self;
     self.textView.delegate = self;
     [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.addImageButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
@@ -126,10 +128,7 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
                                    style:UIAlertActionStyleCancel
-                                   handler:^(UIAlertAction *action)
-                                   {
-                                       NSLog(@"Cancel action");
-                                   }];
+                                   handler:nil];
     
     [alertController addAction:deleteAction];
     [alertController addAction:cancelAction];
@@ -234,6 +233,44 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
     for (PHAsset *asset in selectedAssets) {
         [picker deselectAsset:asset];
     }
+}
+
+
+#pragma mark - ImageListViewDelegate
+
+- (void)imageList:(ImageListView *)imageList imageCellTapped:(ImageListCell *)imageCell {
+    
+}
+
+- (void)imageList:(ImageListView *)imageList imageCellLongPressed:(ImageListCell *)imageCell {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Delete Image"
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *deleteAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Delete", @"Delete action")
+                                   style:UIAlertActionStyleDestructive
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSInteger index = [imageList indexOfCell:imageCell];
+                                       if (index >= 0) {
+                                           Image *img = [self.note.images objectAtIndex:index];
+                                           [self.note removeImagesObject:img];
+                                           [img MR_deleteEntity];
+                                           [self updateView];
+                                       }
+                                       
+                                   }];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:nil];
+    
+    [alertController addAction:deleteAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 
