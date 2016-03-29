@@ -1,6 +1,8 @@
 platform :ios, '8.0'
 
 target 'SimpleNotes' do
-	pod'MagicalRecord'
+	pod 'MagicalRecord'
+	pod 'GMImagePicker'
+	pod 'UITextView+Placeholder'
 end
 
