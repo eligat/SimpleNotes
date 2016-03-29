@@ -89,7 +89,7 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     
     // Title
     if (!self.picker.title) {
-        self.title = NSLocalizedStringFromTableInBundle(@"picker.navigation.title",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Navigation bar default title");
+        self.title = @"";//NSLocalizedStringFromTableInBundle(@"picker.navigation.title",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Navigation bar default title");
     } else {
         self.title = self.picker.title;
     }

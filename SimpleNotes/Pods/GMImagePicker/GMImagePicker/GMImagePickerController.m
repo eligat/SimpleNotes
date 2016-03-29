@@ -164,7 +164,7 @@
 
 - (void)deselectAsset:(PHAsset *)asset
 {
-    [self.selectedAssets removeObjectAtIndex:[self.selectedAssets indexOfObject:asset]];
+    [self.selectedAssets removeObject:asset];
     if (self.selectedAssets.count == 0) {
         [self updateDoneButton];
     }
