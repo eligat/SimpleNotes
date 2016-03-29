@@ -1,8 +1,9 @@
 
 #import <Foundation/Foundation.h>
 #import <MagicalRecord/MagicalRecord.h>
+#import <Photos/Photos.h>
 
-@class Note, Image;
+@class Note, Image, PHAsset;
 
 
 @interface DataManager : NSObject
@@ -14,5 +15,8 @@
 - (Note *)newTemporaryNoteWithNote:(Note *)note;
 
 // Image
-- (Image *)newImageWithReferenceURL:(NSURL *)url;
+- (Image *)newImageWithAsset:(PHAsset *)asset;
+- (void)fetchThumbnailImagesForNote:(Note *)note ofTargerSize:(CGSize)targetSize completion:(void(^)(NSArray<UIImage *> *images))completion;
+- (void)fetchFullSizedImageForImage:(Image *)img completion:(void(^)(UIImage *image))completion;
+
 @end
