@@ -26,7 +26,7 @@
                     <navigationItem key="navigationItem" title="Notes List" id="007-Vu-bVn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="ZqN-Av-dOn" kind="show" identifier="NewNoteSegue" id="NrN-T3-7Yd"/>
+                        <segue destination="ZqN-Av-dOn" kind="show" identifier="AddNewNoteSegue" id="NrN-T3-7Yd"/>
                         <segue destination="FL2-a8-N3e" kind="showDetail" identifier="ShowDetailSegue" id="xDe-fw-duT"/>
                     </connections>
                 </viewController>
@@ -96,6 +96,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="xDe-fw-duT"/>
-        <segue reference="3Bn-HJ-j5Y"/>
+        <segue reference="NrN-T3-7Yd"/>
     </inferredMetricsTieBreakers>
 </document>

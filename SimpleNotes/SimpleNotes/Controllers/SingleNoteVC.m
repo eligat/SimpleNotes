@@ -2,14 +2,17 @@
 #import "SingleNoteVC.h"
 #import "Note.h"
 #import "ImageListView.h"
+#import "UITextView+Placeholder.h"
+
+#import "DataManager.h"
 
 static NSString * const EditNoteSegueID = @"EditNoteSegue";
 
 
-@interface SingleNoteVC ()
+@interface SingleNoteVC () <ImageListViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIView *imagesView;
+@property (weak, nonatomic) IBOutlet ImageListView *imagesView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagesViewHeight;
 
 @end
 
@@ -21,13 +24,13 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.imagesView.delegate = self;
+    
     [self setupNavigationBar];
-    [self updateView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [self updateView];
 }
 
 
@@ -46,7 +49,27 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
 }
 
 
-#pragma mark - Private
+#pragma mark - Public
+
+- (void)updateView {
+    self.nameLabel.text = self.note.name;
+    self.textView.text = self.note.text;
+    if (!self.note.text.length) {
+        self.textView.placeholder = @"Text";
+    }
+    
+    
+    CGSize thumbnailImageSize = CGSizeMake(self.imagesView.bounds.size.width, self.imagesView.imageHeight);
+    [[DataManager sharedManager] fetchThumbnailImagesForNote:self.note
+                                                ofTargerSize:thumbnailImageSize
+                                                  completion:^(NSArray<UIImage *> *images) {
+                                                      
+                                                      self.imagesView.images = images;
+                                                      self.imagesViewHeight.constant = self.imagesView.contentSize.height;
+                                                      
+                                                  }];
+}
+
 - (void)setupNavigationBar {
     // Back button
     self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -60,9 +83,15 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
     self.navigationItem.rightBarButtonItem = edit;
 }
 
-- (void)updateView {
-    self.nameLabel.text = self.note.name;
-    self.textView.text = self.note.text;
+
+#pragma mark - ImageListViewDelegate
+
+- (void)imageList:(ImageListView *)imageList imageCellTapped:(ImageListCell *)imageCell {
+    NSLog(@"%s", __func__);
+}
+
+- (void)imageList:(ImageListView *)imageList imageCellLongPressed:(ImageListCell *)imageCell {
+    NSLog(@"%s", __func__);
 }
 
 

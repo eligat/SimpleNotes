@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingleNoteVC">
             <connections>
                 <outlet property="imagesView" destination="ClW-l0-EQL" id="jLs-Jh-aMy"/>
+                <outlet property="imagesViewHeight" destination="fen-0S-WxU" id="P6l-T8-rdi"/>
                 <outlet property="nameLabel" destination="pUQ-gD-9hF" id="2UK-6S-KL0"/>
                 <outlet property="textView" destination="X33-bE-yaf" id="I81-6h-cij"/>
                 <outlet property="view" destination="iN0-l3-epB" id="iDJ-hD-Yrp"/>
@@ -26,31 +27,31 @@
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Note text" translatesAutoresizingMaskIntoConstraints="NO" id="X33-bE-yaf">
                                     <rect key="frame" x="20" y="49" width="280" height="128"/>
-                                    <color key="backgroundColor" white="0.95382543103448281" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="CuF-pI-RWq"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-l0-EQL" userLabel="Images View" customClass="ImageListView">
+                                    <rect key="frame" x="20" y="185" width="280" height="0.0"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" id="fen-0S-WxU"/>
+                                    </constraints>
+                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUQ-gD-9hF">
                                     <rect key="frame" x="24" y="20" width="45" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-l0-EQL" userLabel="Images View" customClass="ImageListView">
-                                    <rect key="frame" x="8" y="185" width="304" height="0.0"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" id="fen-0S-WxU"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="X33-bE-yaf" firstAttribute="leading" secondItem="9a5-VT-9K7" secondAttribute="leading" constant="20" id="17u-n5-H7P"/>
-                                <constraint firstItem="ClW-l0-EQL" firstAttribute="leading" secondItem="9a5-VT-9K7" secondAttribute="leading" constant="8" id="7Qr-EI-5Hf"/>
+                                <constraint firstItem="ClW-l0-EQL" firstAttribute="leading" secondItem="9a5-VT-9K7" secondAttribute="leading" constant="20" id="7Qr-EI-5Hf"/>
                                 <constraint firstAttribute="bottom" secondItem="ClW-l0-EQL" secondAttribute="bottom" priority="250" id="8lf-4a-w0W"/>
                                 <constraint firstAttribute="width" constant="320" id="DLb-1M-U9a"/>
                                 <constraint firstItem="ClW-l0-EQL" firstAttribute="top" secondItem="X33-bE-yaf" secondAttribute="bottom" constant="8" id="JpI-7r-iYQ"/>
@@ -60,7 +61,7 @@
                                 <constraint firstItem="X33-bE-yaf" firstAttribute="top" secondItem="pUQ-gD-9hF" secondAttribute="bottom" constant="8" symbolic="YES" id="cB0-rX-6Or"/>
                                 <constraint firstItem="X33-bE-yaf" firstAttribute="centerX" secondItem="9a5-VT-9K7" secondAttribute="centerX" id="ePo-Ce-kfk"/>
                                 <constraint firstAttribute="height" constant="420" id="hS9-XR-UCc"/>
-                                <constraint firstAttribute="trailing" secondItem="ClW-l0-EQL" secondAttribute="trailing" constant="8" id="iyi-ag-6A3"/>
+                                <constraint firstAttribute="trailing" secondItem="ClW-l0-EQL" secondAttribute="trailing" constant="20" id="iyi-ag-6A3"/>
                                 <constraint firstItem="ClW-l0-EQL" firstAttribute="top" secondItem="X33-bE-yaf" secondAttribute="bottom" priority="250" constant="8" id="rhJ-7I-HIB"/>
                                 <constraint firstAttribute="trailing" secondItem="X33-bE-yaf" secondAttribute="trailing" constant="20" id="w17-ef-hea"/>
                             </constraints>

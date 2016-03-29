@@ -1,6 +1,8 @@
 
 #import "NotesListVC.h"
 #import "SingleNoteVC.h"
+
+#import "DataManager.h"
 #import "Note+CoreDataProperties.h"
 #import "NoteTVC.h"
 #import "NoteTVCModel.h"
@@ -8,6 +10,7 @@
 
 static NSString * const NoteCellID = @"NoteTVC";
 static NSString * const ShowDetailVCSegueID = @"ShowDetailSegue";
+static NSString * const AddNewNoteSegueID = @"AddNewNoteSegue";
 
 
 @interface NotesListVC () <UITableViewDelegate, UITableViewDataSource>
@@ -56,9 +59,13 @@ static NSString * const ShowDetailVCSegueID = @"ShowDetailSegue";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self reload];
+    [self setupNavigationBar];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadData];
+}
 
 #pragma mark - Accessors
 
@@ -68,12 +75,35 @@ static NSString * const ShowDetailVCSegueID = @"ShowDetailSegue";
 }
 
 
+#pragma mark - Actions
+
+- (void)addNewNote:(UIBarButtonItem *)sendeer {
+    [self performSegueWithIdentifier:AddNewNoteSegueID sender:self];
+}
+
+
 #pragma mark - Private
 
 - (void)reload {
     [self.tableView reloadData];
 }
 
+- (void)reloadData {
+    self.notes = [[DataManager sharedManager] allNotes];
+    [self reload];
+}
+
+- (void)setupNavigationBar {
+    // Back button
+    self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+    self.navigationItem.leftItemsSupplementBackButton = YES;
+    
+    // Edit button
+    UIBarButtonItem *addNew = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                            target:self
+                                                                            action:@selector(addNewNote:)];
+    self.navigationItem.rightBarButtonItem = addNew;
+}
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 
@@ -102,9 +132,16 @@ static NSString * const ShowDetailVCSegueID = @"ShowDetailSegue";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:ShowDetailVCSegueID]) {
+        
         SingleNoteVC *noteVC = (SingleNoteVC *)[(UINavigationController *)segue.destinationViewController viewControllers].firstObject;
         Note *selectedNote = self.notes[[self.tableView indexPathForSelectedRow].row];
         noteVC.note = selectedNote;
+        
+    } else if ([segue.identifier isEqualToString:AddNewNoteSegueID]) {
+        
+        SingleNoteVC *noteVC = (SingleNoteVC *)segue.destinationViewController;
+        noteVC.note = nil;
+        
     }
 }
 
