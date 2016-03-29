@@ -2,7 +2,7 @@
 #import "ImageListView.h"
 #import "ImageListCell.h"
 
-static const CGFloat DefaultCellHeight = 80;
+static const CGFloat DefaultCellHeight = 200;
 static NSString * const ImageListCellID = @"ImageListCell";
 
 @interface ImageListView () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
@@ -42,14 +42,31 @@ static NSString * const ImageListCellID = @"ImageListCell";
 - (void)commonInit{
     _imageHeight = DefaultCellHeight;
     
-    UICollectionViewLayout *layout = [UICollectionViewFlowLayout new];
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    [_collectionView registerClass:[ImageListCell class] forCellWithReuseIdentifier:ImageListCellID];
+    [_collectionView registerNib:[UINib nibWithNibName:ImageListCellID bundle:nil] forCellWithReuseIdentifier:ImageListCellID];
+//    [_collectionView registerClass:[ImageListCell class] forCellWithReuseIdentifier:ImageListCellID];
     
+    [_collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self addSubview:_collectionView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_collectionView);
+    
+    [self addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_collectionView]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [self addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_collectionView]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
 }
 
 
@@ -60,7 +77,11 @@ static NSString * const ImageListCellID = @"ImageListCell";
 }
 
 - (CGSize)contentSize {
-    return self.collectionView.collectionViewLayout.collectionViewContentSize;
+    if (_images.count) {
+        return self.collectionView.collectionViewLayout.collectionViewContentSize;
+    }
+    
+    return CGSizeMake(self.bounds.size.width, 0);
 }
 
 
@@ -98,7 +119,7 @@ static NSString * const ImageListCellID = @"ImageListCell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize size = CGSizeMake(collectionViewLayout.collectionViewContentSize.width, _imageHeight);
+    CGSize size = CGSizeMake(self.bounds.size.width, _imageHeight);
     return size;
 }
 
@@ -117,7 +138,7 @@ static NSString * const ImageListCellID = @"ImageListCell";
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recogniser {
-    if (recogniser.state == UIGestureRecognizerStateBegan) {
+    if (recogniser.state == UIGestureRecognizerStateBegan || recogniser.state == UIGestureRecognizerStateEnded) {
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(imageList:imageCellTapped:)]) {
             ImageListCell *imageCell = (ImageListCell *)recogniser.view;
