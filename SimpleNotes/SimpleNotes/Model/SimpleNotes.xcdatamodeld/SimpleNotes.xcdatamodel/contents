@@ -13,7 +13,7 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Image" inverseName="note" inverseEntity="Image" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Image" positionX="-36" positionY="6" width="128" height="90"/>
+        <element name="Image" positionX="-29" positionY="9" width="128" height="90"/>
         <element name="Note" positionX="-252" positionY="-39" width="128" height="120"/>
     </elements>
 </model>
