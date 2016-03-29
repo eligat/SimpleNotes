@@ -21,12 +21,12 @@
 
 
 #pragma mark - Public
-- (NSArray<Note *> *)allNotes {
++ (NSArray<Note *> *)allNotes {
     NSArray *notes = [Note MR_findAllSortedBy:@"created" ascending:NO];
     return notes;
 }
 
-- (Note *)newTemporaryNoteWithNote:(Note *)note {    
++ (Note *)newTemporaryNoteWithNote:(Note *)note {
     Note *tmpNote = [Note MR_createEntityInContext:[NSManagedObjectContext MR_defaultContext]];
     tmpNote.name = note.name;
     tmpNote.text = note.text;
@@ -35,7 +35,7 @@
     return tmpNote;
 }
 
-- (Image *)newImageWithAsset:(PHAsset *)asset{
++ (Image *)newImageWithAsset:(PHAsset *)asset{
     if (!asset) return nil;
     
     Image *img = [Image MR_createEntityInContext:[NSManagedObjectContext MR_defaultContext]];
@@ -44,7 +44,7 @@
     return img;
 }
 
-- (void)fetchThumbnailImagesForNote:(Note *)note ofTargerSize:(CGSize)targetSize completion:(void(^)(NSArray<UIImage *> *images))completion {
++ (void)fetchThumbnailImagesForNote:(Note *)note ofTargerSize:(CGSize)targetSize completion:(void(^)(NSArray<UIImage *> *images))completion {
     NSMutableArray *resultImages = [NSMutableArray new];
     
     PHImageManager *imageManager = [PHImageManager defaultManager];
@@ -83,7 +83,7 @@
     });
 }
 
-- (void)fetchFullSizedImageForImage:(Image *)img completion:(void(^)(UIImage *image))completion {
++ (void)fetchFullSizedImageForImage:(Image *)img completion:(void(^)(UIImage *image))completion {
     PHImageManager *imageManager = [PHImageManager defaultManager];
     PHImageRequestOptions *options = [PHImageRequestOptions new];
     options.synchronous = YES;
