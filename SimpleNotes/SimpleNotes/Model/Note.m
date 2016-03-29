@@ -21,4 +21,10 @@
     self.images = tempSet;
 }
 
+- (void)removeImagesObject:(Image *)value {
+    NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.images];
+    [tempSet removeObject:value];
+    self.images = tempSet;
+}
+
 @end
