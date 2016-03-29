@@ -4,5 +4,6 @@ target 'SimpleNotes' do
 	pod 'MagicalRecord'
 	pod 'GMImagePicker'
 	pod 'UITextView+Placeholder'
+	pod 'NYTPhotoViewer', '~> 1.1.0'
 end
 

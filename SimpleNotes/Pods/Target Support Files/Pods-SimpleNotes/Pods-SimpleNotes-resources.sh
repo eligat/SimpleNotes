@@ -72,6 +72,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "GMImagePicker/GMImagePicker/fr.lproj"
   install_resource "GMImagePicker/GMImagePicker/it.lproj"
   install_resource "GMImagePicker/GMImagePicker/pt.lproj"
+  install_resource "${BUILT_PRODUCTS_DIR}/NYTPhotoViewer.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "GMImagePicker/GMImagePicker/GMEmptyFolder@1x.png"
@@ -88,6 +89,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "GMImagePicker/GMImagePicker/fr.lproj"
   install_resource "GMImagePicker/GMImagePicker/it.lproj"
   install_resource "GMImagePicker/GMImagePicker/pt.lproj"
+  install_resource "${BUILT_PRODUCTS_DIR}/NYTPhotoViewer.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
