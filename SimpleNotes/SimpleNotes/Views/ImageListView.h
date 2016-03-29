@@ -19,4 +19,6 @@
 @property (nonatomic) CGFloat imageHeight;
 @property (nonatomic, readonly) CGSize contentSize;
 
+- (NSInteger)indexOfCell:(ImageListCell *)cell;
+
 @end

@@ -71,6 +71,7 @@ static NSString * const ImageListCellID = @"ImageListCell";
 
 
 #pragma mark - Accessors
+
 - (void)setImages:(NSArray<UIImage *> *)images {
     _images = images;
     [self.collectionView reloadData];
@@ -82,6 +83,18 @@ static NSString * const ImageListCellID = @"ImageListCell";
     }
     
     return CGSizeMake(self.bounds.size.width, 0);
+}
+
+
+#pragma mark - Public
+
+- (NSInteger)indexOfCell:(ImageListCell *)cell {
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    if (indexPath) {
+        return indexPath.row;
+    }
+    
+    return -1;
 }
 
 
