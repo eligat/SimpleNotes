@@ -6,6 +6,7 @@
 
 
 @protocol ImageListViewDelegate <NSObject>
+@optional
 - (void)imageList:(ImageListView *)imageList imageCellTapped:(ImageListCell *)imageCell;
 - (void)imageList:(ImageListView *)imageList imageCellLongPressed:(ImageListCell *)imageCell;
 
@@ -20,5 +21,6 @@
 @property (nonatomic, readonly) CGSize contentSize;
 
 - (NSInteger)indexOfCell:(ImageListCell *)cell;
+- (ImageListCell *)cellAtIndex:(NSInteger)index;
 
 @end

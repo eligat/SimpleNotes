@@ -97,6 +97,10 @@ static NSString * const ImageListCellID = @"ImageListCell";
     return -1;
 }
 
+- (ImageListCell *)cellAtIndex:(NSInteger)index {
+    return (ImageListCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+}
+
 
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
 
