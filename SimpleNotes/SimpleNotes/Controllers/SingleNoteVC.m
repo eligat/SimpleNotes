@@ -12,6 +12,8 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
 @interface SingleNoteVC ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageListHeight;
+@property (weak, nonatomic) IBOutlet UILabel *createdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *updatedLabel;
 
 @property (nonatomic) NSMutableArray *nytPhotos;
 
@@ -65,6 +67,16 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
     if (!self.note.text.length) {
         self.textView.placeholder = @"Text";
     }
+    
+    static NSDateFormatter *dateFormatter = nil;
+    if (!dateFormatter) {
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.locale = [NSLocale currentLocale];
+        dateFormatter.timeZone = [NSTimeZone localTimeZone];
+        dateFormatter.dateFormat = @"dd.MM.yyyy  HH:mm:ss";
+    }
+    self.createdLabel.text = [dateFormatter stringFromDate:self.note.created];
+    self.updatedLabel.text = [dateFormatter stringFromDate:self.note.updated];
     
     
     CGSize thumbnailImageSize = CGSizeMake(self.imageList.bounds.size.width, self.imageList.imageHeight);
