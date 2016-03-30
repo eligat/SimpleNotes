@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingleNoteVC">
             <connections>
-                <outlet property="imagesView" destination="ClW-l0-EQL" id="jLs-Jh-aMy"/>
-                <outlet property="imagesViewHeight" destination="fen-0S-WxU" id="P6l-T8-rdi"/>
+                <outlet property="imageList" destination="ClW-l0-EQL" id="Ugd-fI-cmK"/>
+                <outlet property="imageListHeight" destination="fen-0S-WxU" id="wQS-Ua-gxd"/>
                 <outlet property="nameLabel" destination="pUQ-gD-9hF" id="2UK-6S-KL0"/>
                 <outlet property="textView" destination="X33-bE-yaf" id="I81-6h-cij"/>
                 <outlet property="view" destination="iN0-l3-epB" id="iDJ-hD-Yrp"/>
@@ -34,7 +34,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-l0-EQL" userLabel="Images View" customClass="ImageListView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-l0-EQL" userLabel="Image lIst view" customClass="ImageListView">
                                     <rect key="frame" x="20" y="185" width="280" height="0.0"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -44,7 +44,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUQ-gD-9hF">
                                     <rect key="frame" x="24" y="20" width="45" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>

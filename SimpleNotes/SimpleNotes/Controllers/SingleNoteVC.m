@@ -1,17 +1,19 @@
 
 #import "SingleNoteVC.h"
 #import "Note.h"
-#import "ImageListView.h"
 #import "UITextView+Placeholder.h"
 
 #import "DataManager.h"
+#import "NYTRealPhoto.h"
 
 static NSString * const EditNoteSegueID = @"EditNoteSegue";
 
 
 @interface SingleNoteVC ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagesViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageListHeight;
+
+@property (nonatomic) NSMutableArray *nytPhotos;
 
 @end
 
@@ -20,9 +22,18 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
 
 #pragma mark - Lifecycle
 
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        _nytPhotos = [NSMutableArray new];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.imageList.delegate = self;
     [self setupNavigationBar];
 }
 
@@ -56,14 +67,16 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
     }
     
     
-    CGSize thumbnailImageSize = CGSizeMake(self.imagesView.bounds.size.width, self.imagesView.imageHeight);
-    [DataManager fetchThumbnailImagesForNote:self.note
+    CGSize thumbnailImageSize = CGSizeMake(self.imageList.bounds.size.width, self.imageList.imageHeight);
+    typeof(self) __weak wself = self;
+    [DataManager fetchThumbnailImagesForNote:wself.note
                                  ofTargerSize:thumbnailImageSize
                                    completion:^(NSArray<UIImage *> *images) {
                                        
-                                       self.imagesView.images = images;
-                                       self.imagesViewHeight.constant = self.imagesView.contentSize.height;
-                                       
+                                       wself.imageList.images = images;
+                                       wself.imageListHeight.constant = wself.imageList.contentSize.height;
+                                    
+                                       [wself updateNYTPhotos];
                                    }];
 }
 
@@ -78,6 +91,39 @@ static NSString * const EditNoteSegueID = @"EditNoteSegue";
                                                             target:self
                                                             action:@selector(editButtonPressed:)];
     self.navigationItem.rightBarButtonItem = edit;
+}
+
+
+#pragma mark - Private
+
+- (void)updateNYTPhotos {
+    NSMutableArray *photos = [NSMutableArray new];
+    for (UIImage *img in self.imageList.images) {
+        NYTRealPhoto *photo = [NYTRealPhoto new];
+        photo.image = img;
+        [photos addObject:photo];
+    }
+    
+    _nytPhotos = photos;
+}
+
+
+#pragma mark - ImageListViewDelegate
+
+- (void)imageList:(ImageListView *)imageList imageCellTapped:(ImageListCell *)imageCell {
+    NSInteger index = [imageList indexOfCell:imageCell];
+    NYTPhotosViewController *photosViewController = [[NYTPhotosViewController alloc] initWithPhotos:self.nytPhotos
+                                                                                       initialPhoto:self.nytPhotos[index]];
+    photosViewController.delegate = self;
+    [self presentViewController:photosViewController animated:YES completion:nil];
+}
+
+
+#pragma mark - NYTPhotosViewControllerDelegate
+
+- (UIView * _Nullable)photosViewController:(NYTPhotosViewController *)photosViewController referenceViewForPhoto:(id <NYTPhoto>)photo {
+    NSInteger index = [self.nytPhotos indexOfObject:photo];
+    return (UIView *)[self.imageList cellAtIndex:index];
 }
 
 

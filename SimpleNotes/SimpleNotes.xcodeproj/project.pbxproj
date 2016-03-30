@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		607458081CAB68AE006A7574 /* NYTRealPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 607458071CAB68AE006A7574 /* NYTRealPhoto.m */; };
 		607C4C611CA7ACE00036BC82 /* NoteTVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C4C601CA7ACE00036BC82 /* NoteTVCModel.m */; };
 		607C4C661CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C4C651CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m */; };
 		60837E391CA95B4800DC6A94 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60837E381CA95B4800DC6A94 /* DataManager.m */; };
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		5B549085CE4D6CA9032C6084 /* Pods-SimpleNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleNotes/Pods-SimpleNotes.debug.xcconfig"; sourceTree = "<group>"; };
+		607458061CAB68AE006A7574 /* NYTRealPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NYTRealPhoto.h; path = Model/NYTRealPhoto.h; sourceTree = "<group>"; };
+		607458071CAB68AE006A7574 /* NYTRealPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYTRealPhoto.m; path = Model/NYTRealPhoto.m; sourceTree = "<group>"; };
 		607C4C5F1CA7ACE00036BC82 /* NoteTVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTVCModel.h; path = Controllers/NoteTVCModel.h; sourceTree = "<group>"; };
 		607C4C601CA7ACE00036BC82 /* NoteTVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTVCModel.m; path = Controllers/NoteTVCModel.m; sourceTree = "<group>"; };
 		607C4C641CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISplitViewController+ChildrenAccess.h"; path = "Categories/UISplitViewController+ChildrenAccess.h"; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 		60887BE61CA687C3000A09F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				607458061CAB68AE006A7574 /* NYTRealPhoto.h */,
+				607458071CAB68AE006A7574 /* NYTRealPhoto.m */,
 				60887C0E1CA6CF4E000A09F8 /* Image */,
 				60887C0D1CA6CF45000A09F8 /* Note */,
 				60887BEA1CA68B28000A09F8 /* SimpleNotes.xcdatamodeld */,
@@ -417,6 +422,7 @@
 				60837E391CA95B4800DC6A94 /* DataManager.m in Sources */,
 				60887BCE1CA67FEE000A09F8 /* main.m in Sources */,
 				60887C091CA6CF39000A09F8 /* Note+CoreDataProperties.m in Sources */,
+				607458081CAB68AE006A7574 /* NYTRealPhoto.m in Sources */,
 				60887BEC1CA68B28000A09F8 /* SimpleNotes.xcdatamodeld in Sources */,
 				60887BF31CA6C0D0000A09F8 /* NotesListVC.m in Sources */,
 			);

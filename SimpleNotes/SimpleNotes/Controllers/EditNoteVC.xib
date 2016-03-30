@@ -10,8 +10,8 @@
                 <outlet property="addImageButton" destination="G7B-Ij-L8B" id="o3v-6R-iiw"/>
                 <outlet property="deleteButton" destination="iWY-43-8Ua" id="Jow-S5-xvE"/>
                 <outlet property="deleteButtonHeight" destination="c3L-LV-4je" id="div-fJ-DJN"/>
-                <outlet property="imagesView" destination="dAL-bF-Wte" id="HZ2-7k-2XL"/>
-                <outlet property="imagesViewHeight" destination="jZr-dd-4A0" id="Wbv-og-bjS"/>
+                <outlet property="imageList" destination="dAL-bF-Wte" id="afE-4g-CWI"/>
+                <outlet property="imageListHeight" destination="jZr-dd-4A0" id="Tac-WC-OHu"/>
                 <outlet property="textField" destination="k0z-iE-Ylg" id="Diz-xk-uKf"/>
                 <outlet property="textView" destination="0LG-uL-44m" id="Tno-EJ-oa9"/>
                 <outlet property="view" destination="FgR-Rw-d1d" id="ST0-DZ-dJX"/>
@@ -28,11 +28,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKc-1T-HHQ" userLabel="Content view">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAL-bF-Wte" userLabel="Images View" customClass="ImageListView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAL-bF-Wte" userLabel="Image list view" customClass="ImageListView">
                                     <rect key="frame" x="20" y="225" width="280" height="0.0"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" id="jZr-dd-4A0"/>
+                                        <constraint firstAttribute="height" id="jZr-dd-4A0" userLabel="Image list view height"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7B-Ij-L8B">

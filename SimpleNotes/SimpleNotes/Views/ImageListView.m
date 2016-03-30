@@ -155,7 +155,7 @@ static NSString * const ImageListCellID = @"ImageListCell";
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recogniser {
-    if (recogniser.state == UIGestureRecognizerStateBegan || recogniser.state == UIGestureRecognizerStateEnded) {
+    if (recogniser.state == UIGestureRecognizerStateEnded) {
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(imageList:imageCellTapped:)]) {
             ImageListCell *imageCell = (ImageListCell *)recogniser.view;

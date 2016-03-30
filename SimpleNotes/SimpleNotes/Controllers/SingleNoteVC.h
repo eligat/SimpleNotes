@@ -1,11 +1,13 @@
 
 #import <UIKit/UIKit.h>
+#import "ImageListView.h"
+#import <NYTPhotoViewer/NYTPhotosViewController.h>
 
-@class Note, ImageListView;
+@class Note;
 
-@interface SingleNoteVC : UIViewController
+@interface SingleNoteVC : UIViewController <ImageListViewDelegate, NYTPhotosViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet ImageListView *imagesView;
+@property (weak, nonatomic) IBOutlet ImageListView *imageList;
 
 @property (nonatomic) Note *note;
 

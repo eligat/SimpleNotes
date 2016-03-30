@@ -4,14 +4,13 @@
 #import "Note+CoreDataProperties.h"
 #import "Image+CoreDataProperties.h"
 
-#import "ImageListView.h"
 #import "GMImagePickerController.h"
 
 
 static const CGFloat DefaultDeleteButtonHeight = 30;
 
 
-@interface EditNoteVC () <GMImagePickerControllerDelegate, UITextViewDelegate, ImageListViewDelegate>
+@interface EditNoteVC () <GMImagePickerControllerDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *addImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
@@ -42,7 +41,6 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.imagesView.delegate = self;
     self.textView.delegate = self;
     [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.addImageButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
@@ -237,10 +235,6 @@ static const CGFloat DefaultDeleteButtonHeight = 30;
 
 
 #pragma mark - ImageListViewDelegate
-
-- (void)imageList:(ImageListView *)imageList imageCellTapped:(ImageListCell *)imageCell {
-    
-}
 
 - (void)imageList:(ImageListView *)imageList imageCellLongPressed:(ImageListCell *)imageCell {
     UIAlertController *alertController = [UIAlertController
