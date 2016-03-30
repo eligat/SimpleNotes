@@ -28,11 +28,22 @@
                     <connections>
                         <segue destination="ZqN-Av-dOn" kind="show" identifier="AddNewNoteSegue" id="NrN-T3-7Yd"/>
                         <segue destination="FL2-a8-N3e" kind="showDetail" identifier="ShowDetailSegue" id="xDe-fw-duT"/>
+                        <segue destination="D7b-5f-NNf" kind="show" identifier="SettingsSegue" id="XAn-FW-HHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knr-vC-OUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-29" y="92"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="ivl-7D-FNh">
+            <objects>
+                <viewController id="D7b-5f-NNf" customClass="SettingsVC" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfm-7P-4tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="-175"/>
         </scene>
         <!--Edit NoteVC-->
         <scene sceneID="ep7-ny-soc">

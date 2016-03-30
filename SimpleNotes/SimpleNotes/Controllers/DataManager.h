@@ -13,6 +13,7 @@
 // Note
 + (NSArray<Note *> *)allNotes;
 + (Note *)newTemporaryNoteWithNote:(Note *)note;
++ (void)deleteAllNotes;
 
 // Image
 + (Image *)newImageWithAsset:(PHAsset *)asset;

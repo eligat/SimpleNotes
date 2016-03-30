@@ -11,6 +11,7 @@
 static NSString * const NoteCellID = @"NoteTVC";
 static NSString * const ShowDetailVCSegueID = @"ShowDetailSegue";
 static NSString * const AddNewNoteSegueID = @"AddNewNoteSegue";
+static NSString * const SettingsSegueID = @"SettingsSegue";
 
 
 @interface NotesListVC () <UITableViewDelegate, UITableViewDataSource>
@@ -77,10 +78,13 @@ static NSString * const AddNewNoteSegueID = @"AddNewNoteSegue";
 
 #pragma mark - Actions
 
-- (void)addNewNote:(UIBarButtonItem *)sendeer {
-    [self performSegueWithIdentifier:AddNewNoteSegueID sender:self];
+- (void)addNewNote:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:AddNewNoteSegueID sender:sender];
 }
 
+- (void)goToSettings:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:SettingsSegueID sender:sender];
+}
 
 #pragma mark - Private
 
@@ -97,6 +101,11 @@ static NSString * const AddNewNoteSegueID = @"AddNewNoteSegue";
     // Back button
     self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
     self.navigationItem.leftItemsSupplementBackButton = YES;
+    
+    UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                            target:self
+                                                                            action:@selector(goToSettings:)];
+    self.navigationItem.leftBarButtonItem = settings;
     
     // Edit button
     UIBarButtonItem *addNew = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd

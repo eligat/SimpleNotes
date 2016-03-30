@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		607458081CAB68AE006A7574 /* NYTRealPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 607458071CAB68AE006A7574 /* NYTRealPhoto.m */; };
+		6074580D1CAB774A006A7574 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074580B1CAB774A006A7574 /* SettingsVC.m */; };
+		6074580E1CAB774B006A7574 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6074580C1CAB774A006A7574 /* SettingsVC.xib */; };
 		607C4C611CA7ACE00036BC82 /* NoteTVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C4C601CA7ACE00036BC82 /* NoteTVCModel.m */; };
 		607C4C661CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C4C651CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.m */; };
 		60837E391CA95B4800DC6A94 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60837E381CA95B4800DC6A94 /* DataManager.m */; };
@@ -39,6 +41,9 @@
 		5B549085CE4D6CA9032C6084 /* Pods-SimpleNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleNotes/Pods-SimpleNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		607458061CAB68AE006A7574 /* NYTRealPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NYTRealPhoto.h; path = Model/NYTRealPhoto.h; sourceTree = "<group>"; };
 		607458071CAB68AE006A7574 /* NYTRealPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYTRealPhoto.m; path = Model/NYTRealPhoto.m; sourceTree = "<group>"; };
+		6074580A1CAB774A006A7574 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsVC.h; path = Controllers/SettingsVC.h; sourceTree = "<group>"; };
+		6074580B1CAB774A006A7574 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsVC.m; path = Controllers/SettingsVC.m; sourceTree = "<group>"; };
+		6074580C1CAB774A006A7574 /* SettingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsVC.xib; path = Controllers/SettingsVC.xib; sourceTree = "<group>"; };
 		607C4C5F1CA7ACE00036BC82 /* NoteTVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTVCModel.h; path = Controllers/NoteTVCModel.h; sourceTree = "<group>"; };
 		607C4C601CA7ACE00036BC82 /* NoteTVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTVCModel.m; path = Controllers/NoteTVCModel.m; sourceTree = "<group>"; };
 		607C4C641CA7B9C40036BC82 /* UISplitViewController+ChildrenAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISplitViewController+ChildrenAccess.h"; path = "Categories/UISplitViewController+ChildrenAccess.h"; sourceTree = "<group>"; };
@@ -95,6 +100,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		607458091CAB7722006A7574 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6074580A1CAB774A006A7574 /* SettingsVC.h */,
+				6074580B1CAB774A006A7574 /* SettingsVC.m */,
+				6074580C1CAB774A006A7574 /* SettingsVC.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		607C4C5C1CA7AC3A0036BC82 /* SingleNote */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +242,7 @@
 				60837E371CA95B4800DC6A94 /* DataManager.h */,
 				60837E381CA95B4800DC6A94 /* DataManager.m */,
 				607C4C5D1CA7AC430036BC82 /* NotesList */,
+				607458091CAB7722006A7574 /* Settings */,
 				607C4C5C1CA7AC3A0036BC82 /* SingleNote */,
 				607C4C5E1CA7AC4B0036BC82 /* EditNote */,
 			);
@@ -348,6 +364,7 @@
 				60887BDF1CA67FEE000A09F8 /* LaunchScreen.storyboard in Resources */,
 				60887BFB1CA6C67F000A09F8 /* SingleNoteVC.xib in Resources */,
 				60887BDC1CA67FEE000A09F8 /* Assets.xcassets in Resources */,
+				6074580E1CAB774B006A7574 /* SettingsVC.xib in Resources */,
 				60887BF41CA6C0D0000A09F8 /* NotesListVC.xib in Resources */,
 				60887BD71CA67FEE000A09F8 /* Main.storyboard in Resources */,
 			);
@@ -413,6 +430,7 @@
 				60887C0A1CA6CF39000A09F8 /* Note.m in Sources */,
 				60887BD41CA67FEE000A09F8 /* SingleNoteVC.m in Sources */,
 				60887BF81CA6C1B9000A09F8 /* NoteTVC.m in Sources */,
+				6074580D1CAB774A006A7574 /* SettingsVC.m in Sources */,
 				60887BFF1CA6C80D000A09F8 /* EditNoteVC.m in Sources */,
 				60837E3C1CA96C6D00DC6A94 /* ImageListView.m in Sources */,
 				60887BD11CA67FEE000A09F8 /* AppDelegate.m in Sources */,

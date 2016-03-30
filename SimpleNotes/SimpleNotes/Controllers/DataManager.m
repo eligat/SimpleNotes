@@ -44,6 +44,21 @@
     return img;
 }
 
++ (void)deleteAllNotes {
+    NSArray *notes = [Note MR_findAll];
+    for (Note *note in notes) {
+        for (Image *img in note.images) {
+            [note removeImagesObject:img];
+            [img MR_deleteEntity];
+        }
+        
+        [note MR_deleteEntity];
+    }
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+
 + (void)fetchThumbnailImagesForNote:(Note *)note ofTargerSize:(CGSize)targetSize completion:(void(^)(NSArray<UIImage *> *images))completion {
     NSMutableArray *resultImages = [NSMutableArray new];
     
